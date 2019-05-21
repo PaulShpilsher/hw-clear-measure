@@ -102,5 +102,24 @@ namespace UnitTest {
                 }
             }
         }
+
+        [Test]
+        public void TestSubstitutionsMultiSubstitutions() {
+            const int maxNumber = 100;
+            var numberSubstitutions = new Dictionary<int, string>() {
+                {3, "three"},
+                {5, "five"},
+                {15, "fifteen" },
+                {30, "thirty" }
+            };
+
+            var actual = _classUnderTest.SubstitutedNumbers(maxNumber, numberSubstitutions)
+                .ToArray();
+
+            Assert.AreEqual("three", actual[2]);
+            Assert.AreEqual("five", actual[4]);
+            Assert.AreEqual("threefivefifteen", actual[14]);
+            Assert.AreEqual("threefivefifteenthirty", actual[29]);
+        }
     }
 }
