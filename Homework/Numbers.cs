@@ -15,7 +15,7 @@ namespace Homework {
 
             IEnumerable<int> numberSequence = Enumerable.Range(1, maxNumber);
 
-            if(numberSubstitutions != null && numberSubstitutions.Any()) {
+            if(numberSubstitutions != null) {
                 // filter out Keys outside range [1, maxNumber]
                 IEnumerable<KeyValuePair<int, string>> substitutions = numberSubstitutions.Where(x => x.Key > 0 && x.Key <= maxNumber); 
 
